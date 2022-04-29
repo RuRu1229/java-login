@@ -74,23 +74,40 @@ public class WebService {
 		return "login";
 	}
 
-	public String loging(String username,String password){
+	public String loging(Web web,String username,String password){
 		Optional<Web> webOptional = webRepository.findById(username);
-		Web web = webOptional.get();
-		Optional<Web> webOptional2=webRepository.findById(password);
-		if(web.getUsername().equals(username) ) {
-			
+		//System.out.println(webOptional);
+		//String web = webOptional.get().getUsername();
+	//	System.out.println(web);
+	//	System.out.print(pass);
+//		Optional<Web> webOpti = webRepository.findById(password);
+		System.out.print(username);
+		System.out.println(password);
+		if(webOptional.isPresent()/*return true;*/) {
+			String pass= webOptional.get().getPassword();
+			//String word=webRepository.hashCode(password);
+	//		System.out.print(webOpti);
+			if(pass.equals(password)) {
+				
+				return "HI";
+			//
+				}			
+		}
+		//if(web.getUsername()!=null ) {
+	//	if(webOptional){
+		//return "HI!";	
+		//}	
 	//	}
 	//	if(webRepository.findById(username).equals(username)) {
 			//return "HI";
 	//	
 		
-		return "HELLO";
+		//return "HELLO";
 	//	web=webRepository.findById(username);
 		
 		//if(web != null) {
 		//return "clear";
-		}
+	//	}
 		return "HELLO";
 	//	return null;
 	}

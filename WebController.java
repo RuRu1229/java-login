@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -56,11 +58,13 @@ public class WebController {
 		//webService.showLogin();
 //	}
 	@GetMapping("/Web/login/{username}")
-	public String loging(@PathVariable String username,String password){
-		return webService.loging(username,password);//(username,password);
+	//@ResponseBody
+	public String loging(@RequestBody Web web,@PathVariable String username,@RequestParam("password") String password){
+		return webService.loging(web,username,password);//(username,password);
 	}
 	
 }
+
 	
 
 
